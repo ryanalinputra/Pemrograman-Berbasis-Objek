@@ -1,4 +1,4 @@
-from modul_custom import x, y, z, text, tambah, bagi, greeting
+from modul_custom import *
 
 print(x)
 print(y)
