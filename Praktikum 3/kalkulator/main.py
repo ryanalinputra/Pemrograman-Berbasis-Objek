@@ -13,6 +13,7 @@ while True:
     except ValueError:
         print("Error: Input harus berupa angka")
         konfirmasi()
+        continue
     try:
         print("\n1. Tambah")
         print("2. Kurang")
