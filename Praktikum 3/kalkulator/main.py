@@ -8,17 +8,18 @@ def konfirmasi():
 print("=== KALKULATOR ===")
 while True:
     try:
-        a = int(input("Masukkan angka pertama: "))
-        b = int(input("Masukkan angka kedua: "))
+        a = float(input("Masukkan angka pertama: "))
+        b = float(input("Masukkan angka kedua: "))
     except ValueError:
         print("Error: Input harus berupa angka")
         konfirmasi()
+        continue
     try:
         print("\n1. Tambah")
         print("2. Kurang")
         print("3. Kali")
         print("4. Bagi")
-        pilihan = float(input("Masukkan pilihan: "))
+        pilihan = int(input("Masukkan pilihan: "))
         if pilihan == 1:
             print("Hasil: ", kalkulator.tambah(a, b))
             konfirmasi()
