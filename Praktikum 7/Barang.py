@@ -46,3 +46,11 @@ class Barang:
         except Exception as e:
             print(e)
 
+    def insert_data_log(self, val1, val2):
+        try:
+            sql = "INSERT INTO log (tanggal_jam, user, keterangan) VALUES (NOW(), %s, %s)"
+            val = (val1, val2)
+            mycursor.execute(sql, val)
+            mydb.commit()
+        except Exception as e:
+            print(e)
