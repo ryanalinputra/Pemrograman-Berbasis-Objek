@@ -40,6 +40,7 @@ class Dialog_ubah_user(QtWidgets.QDialog, UbahUserUI):
 
         self.lineEdit.setText(nama)
         self.lineEdit_2.setText(username)
+        self.lineEdit_2.setEnabled(False)
         self.lineEdit_3.setText(password)
         if level == "Admin":
             self.radioButton.setChecked(True)

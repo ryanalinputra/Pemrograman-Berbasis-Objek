@@ -34,6 +34,7 @@ class Dialog_ubah_barang(QtWidgets.QDialog, UbahBarangUI):
         self.comboBox.addItems(["Obat Bebas", "Obat Bebas Terbatas", "Obat Keras", "Obat Herbal"])
 
         self.lineEdit.setText(id_barang)
+        self.lineEdit.setEnabled(False)
         self.lineEdit_2.setText(nama)
         self.spinBox.setValue(int(stok))
         self.lineEdit_3.setText(harga)

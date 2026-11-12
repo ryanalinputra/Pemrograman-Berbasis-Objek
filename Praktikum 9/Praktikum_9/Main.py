@@ -54,8 +54,8 @@ class AppController:
                 self.window = HalamanKasir()
                 self.window.show()
                 self.window.pushButton_4.clicked.connect(self.logout)
-            else:
-                QtWidgets.QMessageBox.warning(None, "Error", "Login gagal!")
+        else:
+            QtWidgets.QMessageBox.warning(None, "Error", "Login gagal!")
 
 if __name__ == "__main__":
     controller = AppController()
