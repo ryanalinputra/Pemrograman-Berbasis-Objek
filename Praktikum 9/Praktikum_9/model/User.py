@@ -3,6 +3,8 @@ from model.connectiondb import mydb
 mycursor = mydb.cursor()
 
 class User:
+    current_user = "Unknown"
+
     def __init__(self):
         self
 
@@ -12,7 +14,11 @@ class User:
             val = (val1, val2)
             mycursor.execute(sql, val)
             level = mycursor.fetchone()
-            return str(level[0])
+            if level:
+                User.current_user = val1
+                self.insert_data_log(User.current_user, "Login")
+                return str(level[0])
+            return None
         except Exception as e:
             print(e)
 
@@ -41,6 +47,7 @@ class User:
             val = (val1, val2, val3, val4)
             mycursor.execute(sql, val)
             mydb.commit()
+            self.insert_data_log(User.current_user, f"Tambah user {val2}")
             print(mycursor.rowcount, "Data berhasil ditambahkan...")
         except Exception as e:
             print(e)
@@ -51,6 +58,7 @@ class User:
             val = (val1, val2, val3, val4)
             mycursor.execute(sql, val)
             mydb.commit()
+            self.insert_data_log(User.current_user, f"Ubah user {val4}")
             print(mycursor.rowcount, "Data berhasil diupdate.")
         except Exception as e:
             print(e)
@@ -61,9 +69,19 @@ class User:
             value = (val1,)
             mycursor.execute(sql, value)
             mydb.commit()
+            self.insert_data_log(User.current_user, f"Hapus user {val1}")
             print(mycursor.rowcount, "Data berhasil dihapus")
         except Exception as e:
             print(e)
+    
+    def select_data_tabel_log(self):
+        try:
+            sql = "SELECT tanggal_jam, user, keterangan FROM log"
+            mycursor.execute(sql)
+            return mycursor.fetchall()
+        except Exception as e:
+            print(e)
+            return []
 
     def insert_data_log(self, val1, val2):
         try:

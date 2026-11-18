@@ -4,6 +4,7 @@ import sys
 from ui.dashboard_admin import Ui_MainWindow as AdminUI
 from controller.dialog_admin import Dialog_tambah_user as TambahUserUI
 from controller.dialog_admin import Dialog_ubah_user as UbahUserUI
+from controller.dialog_log import Dialog_tampil_log as TampilLogUI
 from model.User import User  
 
 class HalamanAdmin(QtWidgets.QMainWindow, AdminUI):
@@ -20,7 +21,8 @@ class HalamanAdmin(QtWidgets.QMainWindow, AdminUI):
         self.pushButton.clicked.connect(self.buka_form_tambah)
         self.pushButton_2.clicked.connect(self.buka_form_ubah)
         self.pushButton_3.clicked.connect(self.konfirmasi_hapus)
-        self.pushButton_4.clicked.connect(self.kembali)
+        self.pushButton_5.clicked.connect(self.buka_log)
+        # self.pushButton_4.clicked.connect(self.kembali)
     
     def tampil_tabel(self):
         data = self.user.select_data_tabel()
@@ -33,6 +35,11 @@ class HalamanAdmin(QtWidgets.QMainWindow, AdminUI):
     
     def buka_form_tambah(self):
         dialog = TambahUserUI()
+        if dialog.exec_() == QtWidgets.QDialog.Accepted:
+            self.tampil_tabel()
+    
+    def buka_log(self):
+        dialog = TampilLogUI()
         if dialog.exec_() == QtWidgets.QDialog.Accepted:
             self.tampil_tabel()
 
@@ -64,7 +71,7 @@ class HalamanAdmin(QtWidgets.QMainWindow, AdminUI):
             self.user.delete_data(username)
             self.tampil_tabel()
     
-    def kembali(self):
-        reply = QtWidgets.QMessageBox.question(None, "Konfirmasi", "Yakin akan logout?", QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
-        if reply == QtWidgets.QMessageBox.Yes:
-            self.close()
+    # def kembali(self):
+    #     reply = QtWidgets.QMessageBox.question(None, "Konfirmasi", "Yakin akan logout?", QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
+    #     if reply == QtWidgets.QMessageBox.Yes:
+    #         self.close()

@@ -136,6 +136,25 @@
      </rect>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton_5">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>40</y>
+      <width>81</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Log</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>12</width>
+      <height>12</height>
+     </size>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

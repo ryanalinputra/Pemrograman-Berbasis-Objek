@@ -21,8 +21,13 @@ class AppController:
         self.app = QtWidgets.QApplication(sys.argv)
 
     def logout(self):
-        self.window.close()
-        self.show_login()
+        # self.window.close()
+        # self.show_login()
+        reply = QtWidgets.QMessageBox.question(None, "Konfirmasi", "Yakin akan logout?", QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
+        if reply == QtWidgets.QMessageBox.Yes:
+            User().insert_data_log(User.current_user, "Logout")
+            self.window.close()
+            self.show_login()
 
     def run(self):
         self.show_login()

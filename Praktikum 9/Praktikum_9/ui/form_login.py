@@ -29,7 +29,7 @@ class Ui_MainWindow(object):
         self.label_2.setGeometry(QtCore.QRect(80, 100, 61, 16))
         self.label_2.setObjectName("label_2")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(80, 140, 47, 16))
+        self.label_3.setGeometry(QtCore.QRect(80, 140, 61, 16))
         self.label_3.setObjectName("label_3")
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit.setGeometry(QtCore.QRect(150, 100, 151, 20))

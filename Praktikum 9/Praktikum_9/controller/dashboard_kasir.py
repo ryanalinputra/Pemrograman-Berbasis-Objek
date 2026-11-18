@@ -19,7 +19,7 @@ class HalamanKasir(QtWidgets.QMainWindow, KasirUI):
         self.pushButton.clicked.connect(self.buka_form_tambah)
         self.pushButton_2.clicked.connect(self.buka_form_ubah)
         self.pushButton_3.clicked.connect(self.konfirmasi_hapus)
-        self.pushButton_4.clicked.connect(self.kembali)
+        # self.pushButton_4.clicked.connect(self.kembali)
 
     def tampil_tabel(self):
         data = self.barang.select_data_tabel()
@@ -64,7 +64,7 @@ class HalamanKasir(QtWidgets.QMainWindow, KasirUI):
             self.barang.delete_data(ID)
             self.tampil_tabel()
     
-    def kembali(self):
-        reply = QtWidgets.QMessageBox.question(None, "Konfirmasi", "Yakin akan logout?", QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
-        if reply == QtWidgets.QMessageBox.Yes:
-            self.close()
+    # def kembali(self):
+    #     reply = QtWidgets.QMessageBox.question(None, "Konfirmasi", "Yakin akan logout?", QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
+    #     if reply == QtWidgets.QMessageBox.Yes:
+    #         self.close()

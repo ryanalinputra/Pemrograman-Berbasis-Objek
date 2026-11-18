@@ -1,10 +1,12 @@
 from model.connectiondb import mydb
+from model.User import User
 
 mycursor = mydb.cursor()
 
 class Barang:
     def __init__(self):
         self
+        self.user = User()
 
     def select_data(self):
         try:
@@ -31,6 +33,7 @@ class Barang:
             val = (val1, val2, val3, val4, val5)
             mycursor.execute(sql, val)
             mydb.commit()
+            self.user.insert_data_log(User.current_user, f"Tambah barang {val2}")
             print(mycursor.rowcount, "Data berhasil ditambahkan...")
         except Exception as e:
             print(e)
@@ -41,6 +44,7 @@ class Barang:
             val = (val1, val2, val3, val4, val5)
             mycursor.execute(sql, val)
             mydb.commit()
+            self.user.insert_data_log(User.current_user, f"Ubah barang {val1}")
             print(mycursor.rowcount, "Data berhasil diupdate.")
         except Exception as e:
             print(e)
@@ -51,6 +55,7 @@ class Barang:
             value = (val1,)
             mycursor.execute(sql, value)
             mydb.commit()
+            self.user.insert_data_log(User.current_user, f"Hapus barang {val1}")
             print(mycursor.rowcount, "Data berhasil dihapus")
         except Exception as e:
             print(e)
